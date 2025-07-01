@@ -114,7 +114,7 @@ public class Utils {
     public static @NonNull Set<Language> getTrainingDataLanguages(Context context) {
         return allLangs(context, SpUtil.getInstance().getStringSet(
                 context.getString(R.string.key_language_for_tesseract_multi),
-                Collections.singleton(DEFAULT_LANGUAGE)));
+                Set.of("eng","chi_sim")));
     }
 
     public static int getPageSegMode() {

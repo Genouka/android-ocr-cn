@@ -9,15 +9,15 @@ public class Constants {
     /***
      *TRAINING DATA URL TEMPLATES for downloading
      */
-    public static final String TESSERACT_DATA_DOWNLOAD_URL_BEST = "https://github.com/tesseract-ocr/tessdata_best/raw/4.0.0/%s.traineddata";
-    public static final String TESSERACT_DATA_DOWNLOAD_URL_STANDARD = "https://github.com/tesseract-ocr/tessdata/raw/4.0.0/%s.traineddata";
-    public static final String TESSERACT_DATA_DOWNLOAD_URL_FAST = "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/%s.traineddata";
+    public static final String TESSERACT_DATA_DOWNLOAD_URL_BEST = "https://ghfast.top/https://github.com/tesseract-ocr/tessdata_best/raw/4.0.0/%s.traineddata";
+    public static final String TESSERACT_DATA_DOWNLOAD_URL_STANDARD = "https://ghfast.top/https://github.com/tesseract-ocr/tessdata/raw/4.0.0/%s.traineddata";
+    public static final String TESSERACT_DATA_DOWNLOAD_URL_FAST = "https://ghfast.top/https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/%s.traineddata";
 
-    public static final String TESSERACT_DATA_DOWNLOAD_URL_EQU = "https://github.com/tesseract-ocr/tessdata/raw/3.04.00/equ.traineddata";
+    public static final String TESSERACT_DATA_DOWNLOAD_URL_EQU = "https://ghfast.top/https://github.com/tesseract-ocr/tessdata/raw/3.04.00/equ.traineddata";
 
-    public static final String TESSERACT_DATA_DOWNLOAD_URL_AKK_BEST = "https://github.com/tesseract-ocr/tessdata_contrib/raw/main/akk/best/akk.traineddata";
-    public static final String TESSERACT_DATA_DOWNLOAD_URL_AKK_STANDARD = "https://github.com/tesseract-ocr/tessdata_contrib/raw/main/akk/legacy/akk.traineddata";
-    public static final String TESSERACT_DATA_DOWNLOAD_URL_AKK_FAST = "https://github.com/tesseract-ocr/tessdata_contrib/raw/main/akk/fast/akk.traineddata";
+    public static final String TESSERACT_DATA_DOWNLOAD_URL_AKK_BEST = "https://ghfast.top/https://github.com/tesseract-ocr/tessdata_contrib/raw/main/akk/best/akk.traineddata";
+    public static final String TESSERACT_DATA_DOWNLOAD_URL_AKK_STANDARD = "https://ghfast.top/https://github.com/tesseract-ocr/tessdata_contrib/raw/main/akk/legacy/akk.traineddata";
+    public static final String TESSERACT_DATA_DOWNLOAD_URL_AKK_FAST = "https://ghfast.top/https://github.com/tesseract-ocr/tessdata_contrib/raw/main/akk/fast/akk.traineddata";
 
     public static final String LANGUAGE_CODE = "%s.traineddata";
 

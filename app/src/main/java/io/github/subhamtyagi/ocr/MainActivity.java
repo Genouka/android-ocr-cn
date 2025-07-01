@@ -429,7 +429,7 @@ public class MainActivity extends AppCompatActivity implements TessBaseAPI.Progr
                 animateImageViewAlpha(1f);
                 String cleanText = Html.fromHtml(text).toString().trim();
                 showOCRResult(cleanText);
-                Toast.makeText(MainActivity.this, "With Confidence: " + mImageTextReader.getAccuracy() + "%", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "准确率: " + mImageTextReader.getAccuracy() + "%", Toast.LENGTH_SHORT).show();
                 Utils.putLastUsedText(cleanText);
                 updateImageView();
             });
@@ -474,7 +474,7 @@ public class MainActivity extends AppCompatActivity implements TessBaseAPI.Progr
                 if (success[0]) {
                     initializeOCR();
                 } else {
-                    Toast.makeText(MainActivity.this, "Download failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "下载失败。", Toast.LENGTH_SHORT).show();
                 }
             });
         }

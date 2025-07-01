@@ -99,6 +99,14 @@
                 android:action="android.intent.action.VIEW"
                 android:data="@string/github_url" />
         </Preference>
+        <Preference
+            android:icon="@drawable/ic_baseline_source_32"
+            android:summary="@string/open_source_statement"
+            android:title="简体中文/镜像站替换 BiliBili:秋冥散雨_GenOuka">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://m.bilibili.com/space/3493116076100126" />
+        </Preference>
     </PreferenceCategory>
 
 
