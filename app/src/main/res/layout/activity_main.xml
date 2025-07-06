@@ -43,7 +43,10 @@
             android:textSize="20sp" />
 
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,26 +56,41 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5sp"
-            android:layout_weight="1"
-            android:gravity="center_horizontal|end"
-            android:text="@string/selected_language"
             android:singleLine="true"
+            android:text="语言(zh,en,ja,ko)"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/language_name1"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5sp"
             android:layout_weight="1"
-            android:gravity="start"
-            android:textSize="20sp" />
+            android:ems="10"
+            android:inputType="text"
+            android:text="zh" />
 
     </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:foregroundGravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="合并结果"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

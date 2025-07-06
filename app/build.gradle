@@ -1,28 +1,47 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     compileSdkVersion 35
     def gitUrl = getRepositoryURL()
 
-    namespace 'io.github.subhamtyagi.ocr'
+    namespace 'com.genouka.ocr'
+
+    def keystorePropertiesFile = new File("F:/project/genoukakey.properties");
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    signingConfigs {
+        defaultConfig {
+            storeFile file('F:/project/genouka.jks')//签名文件路径，
+            //keystore的路径通常使用项目根目录的相对路径，但也可以是使用绝对路径，尽管这不推荐
+            storePassword keystoreProperties['storePassword'] //密码
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']  //密码
+            enableV1Signing true
+            enableV2Signing true
+            enableV3Signing true
+            enableV4Signing true
+        }
+    }
 
     defaultConfig {
-        applicationId "io.github.subhamtyagi.ocr"
+        applicationId "com.genouka.ocr"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 15
-        versionName "5.2"
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resValue "string", "github_url", gitUrl
         resValue "string", "github_parameter_url", gitUrl+"/blob/master/parameters.md"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
+        signingConfig signingConfigs.defaultConfig
     }
 
     buildTypes {
 
         release {
-            resValue "string", "app_name", "OCR"
+//            resValue "string", "app_name", "秋冥OCR"
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
@@ -37,11 +56,11 @@ android {
 
             if (normalizedWorkingBranch.isEmpty() || workingBranch == "master" || workingBranch == "dev") {
                 applicationIdSuffix ".dev"
-                resValue "string", "app_name", "OCR Dev"
+//                resValue "string", "app_name", "OCR Dev"
             } else {
-                archivesBaseName = 'OCR_' + normalizedWorkingBranch
+                archivesBaseName = 'FallOCR_' + normalizedWorkingBranch
                 applicationIdSuffix ".dev." + normalizedWorkingBranch
-                resValue "string", "app_name", "OCR " + workingBranch
+//                resValue "string", "app_name", "OCR " + workingBranch
             }
 
             minifyEnabled false
@@ -70,6 +89,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -81,12 +103,31 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-   // implementation 'cz.adaptech:tesseract4android:4.1.1'
-    implementation 'cz.adaptech.tesseract4android:tesseract4android-openmp:4.3.0'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+
+    // ML Kit的OCR识别库
+    // 中文识别
+    implementation 'com.google.mlkit:text-recognition-chinese:16.0.1'
+    // 英文识别（拉丁字母）
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
+    // 日文识别
+    implementation 'com.google.mlkit:text-recognition-japanese:16.0.1'
+    // 韩文识别
+    implementation 'com.google.mlkit:text-recognition-korean:16.0.1'
+
+    // 模型ONNX的运行时库
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.19.0'  //latest.release
+    implementation 'com.microsoft.onnxruntime:onnxruntime-extensions-android:0.12.4'   //latest.release
+
+    // 图片处理
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    // Guava库
+    implementation("com.google.guava:guava:33.3.1-android")
 
 }
 
